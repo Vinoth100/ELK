@@ -8,7 +8,7 @@ RUN apt-get --assume-yes install software-properties-common && \
  echo "deb http://packages.elasticsearch.org/logstash/1.5/debian stable main" | sudo tee -a /etc/apt/sources.list && \
  apt-get update && sudo apt-get install logstash && \
  ln -s /lib/x86_64-linux-gnu/libcrypt.so.1 /usr/lib/x86_64-linux-gnu/libcrypt.so 
-ADD logstash.conf /etc/logstash/logstash.conf
+ADD config/logstash.conf /etc/logstash/logstash.conf
 VOLUME ["/data"]
 ENTRYPOINT ["/opt/logstash/bin/logstash","-f","/etc/logstash/logstash.conf"]
 
