@@ -21,7 +21,7 @@ rm -rf kibana-4.1.2-linux-x64 && \
 rm kibana-4.1.2-linux-x64.tar.gz
 
 # Make the kibana port accessible from outside
-EXPOSE 5601
+#EXPOSE 5601
 
 ADD config/kibana.yml /opt/kibana/config/kibana.yml
 
