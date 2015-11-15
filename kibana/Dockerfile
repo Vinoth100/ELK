@@ -2,6 +2,7 @@
 
 FROM ubuntu:14.04
 
+
 # Install Java 8
 RUN apt-get --assume-yes install software-properties-common && \
  add-apt-repository --yes ppa:webupd8team/java && \ 
@@ -25,6 +26,16 @@ rm kibana-4.1.2-linux-x64.tar.gz
 
 ADD config/kibana.yml /opt/kibana/config/kibana.yml
 
+# Environmental Variable 
+ENV ESURL="http://localhost:9200" 
+
+#RUN echo $ESURL
+
+
 # Entry point to begin the kibana service
-ENTRYPOINT ["/opt/kibana/bin/kibana","-e","http://192.168.1.112:9200"]
+#ENTRYPOINT ["/opt/kibana/bin/kibana","-e","http://192.168.1.112:9200"]
+
+# Taking environment variable ESURL to start Kibana
+CMD /opt/kibana/bin/kibana -e ${ESURL}
+
 
