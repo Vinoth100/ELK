@@ -23,8 +23,8 @@ rm kibana-4.1.2-linux-x64.tar.gz
 # Make the kibana port accessible from outside
 EXPOSE 5601
 
-ADD kibana.yml /opt/kibana/config/kibana.yml
+ADD config/kibana.yml /opt/kibana/config/kibana.yml
 
 # Entry point to begin the kibana service
-ENTRYPOINT ["/opt/kibana/bin/kibana"]
+ENTRYPOINT ["/opt/kibana/bin/kibana","-e","http://192.168.1.112:9200"]
 
