@@ -5,5 +5,5 @@ $ docker build -t es .
 
 # Run Elasticsearch Container
 ```sh
-$ docker run -d -p 9200:9200 -p 9300:9300 -v /home/docker/elasticsearch:/data es -Des.config=/data/elasticsearch.yml -Des.default.path.logs=/data 
+$ docker run -d -p 9200:9200 -p 9300:9300 -v /home/docker/elasticsearch:/data es
 ```
