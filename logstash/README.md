@@ -1,9 +1,9 @@
-# Build Elasticsearch image
+# Build Logstash image
 ```sh
-$ docker build -t es .
+$ docker build -t ls .
 ```
 
-# Run Elasticsearch Container
+# Run Logstash Container
 ```sh
-$ docker run -d -p 9200:9200 -p 9300:9300 -v /home/docker/elasticsearch:/data es -Des.config=/data/elasticsearch.yml -Des.default.path.logs=/data 
+$ docker run -d -v /etc/logstash:/data ls
 ```
