@@ -15,7 +15,7 @@ RUN wget -qO - https://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo a
  ln -s /lib/x86_64-linux-gnu/libcrypt.so.1 /usr/lib/x86_64-linux-gnu/libcrypt.so 
 
 # Add the logstash.conf
-ADD logstash.conf /etc/logstash/logstash.conf
+ADD config/logstash.conf /etc/logstash/logstash.conf
 
 #Mount /data as Volume
 VOLUME ["/data"]
