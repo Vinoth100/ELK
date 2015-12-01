@@ -17,9 +17,16 @@ RUN wget -qO - https://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo a
 # Add the logstash.conf
 ADD config/logstash.conf /etc/logstash/logstash.conf
 
+# Geo setup
+RUN cd /etc/logstash && \
+    sudo wget "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz" && \
+    sudo gunzip GeoLiteCity.dat.gz && \
+    sudo chmod 777 GeoLiteCity.dat
+
 #Mount /data as Volume
 VOLUME ["/data"]
 
 # Start the logstash as entrypoint
 ENTRYPOINT ["/opt/logstash/bin/logstash","-f","/etc/logstash/logstash.conf"]
+
 
